@@ -3,7 +3,7 @@ import axios from 'axios';
 class BaseService {
   constructor() {
     this.http = axios.create({
-      baseURL: 'http://localhost:5000',
+      baseURL: 'https://deepcontrol-api.onrender.com',
     });
   }
 
