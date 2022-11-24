@@ -1,6 +1,5 @@
-// import {useEffect} from 'react'
 import { MapContainer, TileLayer, Marker, Polyline } from 'react-leaflet';
-
+import styles from "./Map.module.scss"
 import coordinates from 'constants/coordinates';
 import markerIcons from 'constants/markerIcons';
 import { useState } from 'react';
@@ -12,25 +11,27 @@ const Map = () => {
   const [isVisibleLastLocation, setIsVisibleLastLocation] = useState(false);
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div className={styles.map}>
+
       <button
         onClick={() => setIsVisibleLine(!isVisibleLine)}
-        style={{ position: 'absolute', right: 50, top: 10, zIndex: 2 }}
+        className={styles.line}
       >
         Line {isVisibleLine ? 'Hide' : 'Show'}
       </button>
       <button
         onClick={() => setIsVisibleLastLocation(!isVisibleLastLocation)}
-        style={{ position: 'absolute', right: 120, top: 10, zIndex: 2 }}
+        className={styles.location}
       >
         Only Show Last Location
       </button>
       <button
         onClick={() => logout()}
-        style={{ position: 'absolute', right: 0, top: 10, zIndex: 2 }}
+        className={styles.logout}
       >
         Logout
       </button>
+     
       <MapContainer
         center={coordinates.CANKAYA_BELEDIYE}
         zoom={13}
